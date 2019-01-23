@@ -7,11 +7,18 @@
     <title>Snake</title>
 </head>
 <body>
+    <div class="container">
+        <div id="score">
+            0
+        </div>
+        <div id="speed">
+            0
+        </div>
+    </div>
     
     <canvas id="gameCanvas" width="300" height="300"></canvas>
     
-    
-    <button>Make Snake</button>
+    <button onclick="snakeBoard.startGame()">Make Snake</button>
     
     <script src="main.js"></script>
 </body>
