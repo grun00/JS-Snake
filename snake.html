@@ -5,21 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snake</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> 
 </head>
 <body>
     <div class="container">
-        <div id="score">
-            0
+        <div class="row title">
+            <h1 class="title">ViSnake!</h1>
         </div>
-        <div id="speed">
-            0
+        <div class="row scores"> 
+            <div class="col-4 ">
+                <p>Total Score:</p>
+                <p id="score" class="parascore">0</p>
+            </div>
+            <div class="col-4 ">
+                <p>Speed in pixels/second</p>
+                <p id="speed" class="parascore">0</p>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-dark" id="startBtn">Play Snake</button>
+            </div>
+        </div>  
+        <div class="row canvas">
+            <div class="col-4">
+                <canvas id="gameCanvas" width="300" height="300"></canvas>
+            </div>
+        </div>
+        <div class="foot row">
+            <p>Play Using Vi Controls (h,j,k,l)</p>
         </div>
     </div>
-    
-    <canvas id="gameCanvas" width="300" height="300"></canvas>
-    
-    <button onclick="snakeBoard.startGame()">Make Snake</button>
-    
+
+       
     <script src="main.js"></script>
 </body>
 </html>

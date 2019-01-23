@@ -10,7 +10,7 @@ const snakeBoard = (function(){
     let dx = 10;
     let dy = 0;
     
-    let speed = 1000;
+    let speed = 520;
     
     document.addEventListener('keydown', changeDirection);
 
@@ -23,7 +23,12 @@ const snakeBoard = (function(){
     ];
 
     let score = 0;
-
+    
+    function random_rgba() {
+        var o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    }
+    
     function clearBoard(){
         ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
         ctx.strokestyle = CANVAS_BORDER_COLOUR;
@@ -32,8 +37,8 @@ const snakeBoard = (function(){
     }
     
     function drawSnakeParts(snakePart){
-        ctx.fillStyle ='lightgreen';
-        ctx.strokestyle = 'darkgreen';
+        ctx.fillStyle = random_rgba();
+        ctx.strokestyle = random_rgba;
         
         ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
         ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
@@ -112,8 +117,8 @@ const snakeBoard = (function(){
     }
 
     function drawFood(){
-        ctx.fillStyle = 'red';
-        ctx.strokestyle = 'darkred';
+        ctx.fillStyle = random_rgba();
+        ctx.strokestyle = random_rgba();
         ctx.fillRect(foodXPosition, foodYPosition, 10, 10);
         ctx.strokeRect(foodXPosition, foodYPosition, 10, 10);
     }
@@ -125,7 +130,7 @@ const snakeBoard = (function(){
 
     function changeSpeed(){
         speed -= 20;
-        document.getElementById('speed').textContent = 10/speed;
+        document.getElementById('speed').textContent = (10/speed).toFixed(3);
     }
 
     function main(){
@@ -146,6 +151,7 @@ const snakeBoard = (function(){
     }
     function startGame(){
         state = false;
+        changeSpeed();
         snake = [
         {x: 150, y:150},
         {x: 140, y:150},
@@ -180,4 +186,5 @@ const snakeBoard = (function(){
     }
 }())
 
-
+const btn = document.getElementById('startBtn');
+btn.addEventListener('click', snakeBoard.startGame);

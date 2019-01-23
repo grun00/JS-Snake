@@ -1,0 +1,30 @@
+.title{
+    position: relative;
+    left: 140px;
+}
+.scores{
+    border: solid 1px #111;
+    position: relative;
+    text-align: center;
+}
+
+.canvas{
+    position: relative;
+    text-align: center;
+}
+.container{
+    position: absolute;
+}
+.btn{
+    position: relative;
+    top: 20px;
+}
+#gameCanvas{
+    position: relative;
+    left: 180px;
+    border: solid 1px #111;
+}
+.foot{
+    position: relative;
+    left: 240px; 
+}
