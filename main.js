@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const snakeBoard = (function(){
     
     const CANVAS_BORDER_COLOUR = 'black';
@@ -46,7 +47,7 @@ const snakeBoard = (function(){
 
     function drawSnakeFull(){
         snake.forEach(drawSnakeParts);
-    };
+    }
 
     function snakeMovement(){
         let head = {x: snake[0].x + dx, y: snake[0].y + dy};
@@ -59,7 +60,7 @@ const snakeBoard = (function(){
             createFood();
         }else if(ateFood){
             addScore();
-            createFood()
+            createFood();
         }else{
             snake.pop();
         }
@@ -85,19 +86,19 @@ const snakeBoard = (function(){
         if(keyPressed === LEFT_KEY && !goingRight){
             dx = -10;
             dy = 0;
-        };
+        }
         if(keyPressed === UP_KEY && !goingDown){
             dx = 0;
             dy = -10;
-        };
+        }
         if(keyPressed === RIGHT_KEY && !goingLeft){
             dx = 10;
             dy = 0;
-        };
+        }
         if(keyPressed === DOWN_KEY && !goingUp){
             dx = 0;
             dy = 10;
-        };
+        }
     }
 
     function randomPosition(min, max){
@@ -134,16 +135,16 @@ const snakeBoard = (function(){
     }
 
     function main(){
-        let state = endGame()
+        let state = endGame();
         if(endGame()){
             gameOver();
-            return
+            return;
         }else{
             setTimeout(function onTick(){
                 directionFlag = false;
                 snakeMovement();
                 clearBoard();
-                drawFood()
+                drawFood();
                 drawSnakeFull();
                 main();
             }, speed);
@@ -184,7 +185,7 @@ const snakeBoard = (function(){
     return{
         startGame,
     }
-}())
+})()
 
 const btn = document.getElementById('startBtn');
 btn.addEventListener('click', snakeBoard.startGame);
